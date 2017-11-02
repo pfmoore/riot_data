@@ -1,0 +1,34 @@
+{
+  "global": {
+    "default_region": "EUW"
+  },
+
+  "pipeline": {
+    "Cache": {},
+    "SimpleKVDiskStore": {
+      "package": "cassiopeia_diskstore",
+      "path": "cache/cass"
+    },
+    "UnloadedGhostStore": {},
+    "DDragon": {},
+
+    "RiotAPI": {
+      "api_key": "RIOT_API_KEY",
+      "request_error_handling": {
+          "500": {
+                "strategy": "exponential_backoff",
+                "initial_backoff": 1.0,
+                "backoff_factor": 2.0,
+                "max_attempts": 4
+          }
+      }
+    }
+  },
+
+  "logging": {
+    "print_calls": true,
+    "print_riot_api_key": false,
+    "default": "WARNING",
+    "core": "WARNING"
+  }
+}

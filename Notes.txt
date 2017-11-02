@@ -1,0 +1,10 @@
+# How many processed
+jq '.matches.processed | length' .\progress.json
+# How many seen
+jq '.matches.seen | length' .\progress.json
+# Total match count
+jq '(.matches.processed | length) + (.matches.seen | length)' .\progress.json
+# List of all matches
+jq '.matches.processed[],.matches.seen[]' .\progress.json
+
+jq '(.summoners.processed | length), (.summoners.seen | length)' .\progress.json

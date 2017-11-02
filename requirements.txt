@@ -1,0 +1,5 @@
+--find-links wheels
+git+https://github.com/meraki-analytics/cassiopeia
+cassiopeia-diskstore
+pycurl
+certifi
