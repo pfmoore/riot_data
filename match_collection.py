@@ -44,7 +44,7 @@ class ARAMScanner:
         self.seen_summoners.add(summoner.id)
 
 
-    def match_history(self, id):
+    def get_match_history(self, id):
         # Try to get the match history from our cache
         # Avoids re-querying the Riot API, as Cass doesn't cache
         # match history because it's volatile - but we don't really
@@ -66,7 +66,7 @@ class ARAMScanner:
         if id is None:
             id = next(iter(self.seen_summoners))
 
-        new_matches = match_history(id)
+        new_matches = self.get_match_history(id)
         if new_matches:
             self.seen_matches.update(set(new_matches) - self.processed_matches)
         self.processed_summoners.add(id)
