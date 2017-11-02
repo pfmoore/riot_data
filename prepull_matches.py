@@ -27,6 +27,6 @@ if __name__ == "__main__":
         match = Match(id=id)
         try:
             # Don't worry about exceptions
-            x = match.participants
+            x = match.season
         except Exception:
             pass
